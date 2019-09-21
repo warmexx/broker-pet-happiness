@@ -16,6 +16,3 @@ externals:
     Libs/LibStub:
         url: https://repos.wowace.com/wow/libstub/trunk
         tag: latest
-
-ignore:
-    - .gitignore
