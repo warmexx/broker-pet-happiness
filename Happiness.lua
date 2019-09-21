@@ -15,6 +15,7 @@ local function Update()
     end
 
     DataObject.icon = "Interface\\PetPaperDollFrame\\UI-PetHappiness"
+    DataObject.text = format(PERCENTAGE_STRING, damagePercentage)
 
     if happiness == 1 then
         DataObject.iconCoords = {0.375, 0.5625, 0, 0.359375}
@@ -24,13 +25,15 @@ local function Update()
         DataObject.iconCoords = {0, 0.1875, 0, 0.359375}
     end
 
-    DataObject.text = _G["PET_HAPPINESS" .. happiness]
+    DataObject.tooltip = _G["PET_HAPPINESS" .. happiness]
     DataObject.tooltipDamage = format(PET_DAMAGE_PERCENTAGE, damagePercentage)
     DataObject.tooltipDiet = format(PET_DIET_TEMPLATE, BuildListString(GetPetFoodTypes()))
     if loyaltyRate < 0 then
         DataObject.tooltipLoyalty = _G["LOSING_LOYALTY"]
+        DataObject.text = DataObject.text .. " " .. loyaltyRate
     elseif loyaltyRate > 0 then
         DataObject.tooltipLoyalty = _G["GAINING_LOYALTY"]
+        DataObject.text = DataObject.text .. " +" .. loyaltyRate
     else
         DataObject.tooltipLoyalty = nil
     end
@@ -40,6 +43,7 @@ function DataObject.OnInitialize(self)
     self:RegisterEvent("UNIT_HAPPINESS", Update)
     self:RegisterEvent("UNIT_PET", Update)
     self:RegisterEvent("PET_UI_UPDATE", Update)
+    Update()
 end
 
 function DataObject.OnTooltipShow(tooltip)
@@ -49,7 +53,7 @@ function DataObject.OnTooltipShow(tooltip)
         return
     end
 
-    tooltip:SetText(DataObject.text, 1, 1, 1)
+    tooltip:SetText(DataObject.tooltip, 1, 1, 1)
     tooltip:AddLine(DataObject.tooltipDamage)
     if DataObject.tooltipLoyalty then
         tooltip:AddLine(DataObject.tooltipLoyalty)
