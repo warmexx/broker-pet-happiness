@@ -60,4 +60,10 @@ function DataObject.OnTooltipShow(tooltip)
     end
     tooltip:AddLine(" ")
     tooltip:AddLine(DataObject.tooltipDiet)
+	
+    local currXP, nextXP = GetPetExperience()
+    if ( nextXP == 0 ) then
+        return
+    end
+    GameTooltip_ShowProgressBar(tooltip, min(0, currXP), nextXP, currXP, PERCENTAGE_STRING:format(math.floor((currXP/nextXP) * 100)))
 end
