@@ -7,7 +7,8 @@ AddOn.HappinessObject = DataObject
 local function Update()
     local happiness, damagePercentage, loyaltyRate = GetPetHappiness()
     local hasPetUI, isHunterPet = HasPetUI()
-    if not happiness or not isHunterPet then
+    local petFoodTypes = GetPetFoodTypes()
+    if not happiness or not isHunterPet or not petFoodTypes then
         DataObject.icon = nil
         DataObject.text = nil
         DataObject.iconCoords = nil
@@ -27,7 +28,7 @@ local function Update()
 
     DataObject.tooltip = _G["PET_HAPPINESS" .. happiness]
     DataObject.tooltipDamage = format(PET_DAMAGE_PERCENTAGE, damagePercentage)
-    DataObject.tooltipDiet = format(PET_DIET_TEMPLATE, BuildListString(GetPetFoodTypes()))
+    DataObject.tooltipDiet = format(PET_DIET_TEMPLATE, BuildListString(petFoodTypes))
     if loyaltyRate < 0 then
         DataObject.tooltipLoyalty = _G["LOSING_LOYALTY"]
         DataObject.text = DataObject.text .. " " .. loyaltyRate
