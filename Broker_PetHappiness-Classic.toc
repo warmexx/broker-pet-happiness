@@ -1,0 +1,20 @@
+## Interface: 11307
+## Title: Broker Pet Happiness
+## Notes: A simple broker (LDB) that shows information about your pet's happiness.
+## Version: v1.4
+## Author: Warmexx [Neighbours]
+## OptionalDeps: Ace3
+## X-Donate: PayPal:warmexx AT wow-neighbours DOT com
+## X-Website: https://www.curseforge.com/wow/addons/broker-pet-happiness
+## X-Category: Data Broker
+## X-License: GPL v2
+
+Libs\LibStub\LibStub.lua
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+Libs\AceAddon-3.0\AceAddon-3.0.xml
+Libs\AceEvent-3.0\AceEvent-3.0.xml
+Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
+
+Core.lua
+Happiness.lua
+FeedEffect.lua
