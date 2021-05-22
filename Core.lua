@@ -11,7 +11,10 @@ local function UpdateDataObject(object)
     LDB.text = object.text or ""
     LDB.iconCoords = object.iconCoords or {0, 1, 0, 1}
     LDB.texcoord = LDB.iconCoords
-    LDB.OnTooltipShow = object.OnTooltipShow
+    LDB.OnTooltipShow = function(tooltip)
+        object.OnTooltipShow(tooltip)
+        LDB.tooltipShown = true
+    end
 end
 
 local function Update()
@@ -37,13 +40,16 @@ function AddOn:OnInitialize()
 end
 
 function LDB.OnEnter(self)
-    GameTooltip:SetOwner(self, "ANCHOR_NONE")
-    GameTooltip:SetPoint("TOPLEFT", self, "BOTTOMLEFT")
-    GameTooltip:ClearLines()
-    LDB.OnTooltipShow(GameTooltip)
-    GameTooltip:Show()
+    if not LDB.tooltipShown then
+        GameTooltip:SetOwner(self, "ANCHOR_NONE")
+        GameTooltip:SetPoint("TOPLEFT", self, "BOTTOMLEFT")
+        GameTooltip:ClearLines()
+        LDB.OnTooltipShow(GameTooltip)
+        GameTooltip:Show()
+    end
 end
 
 function LDB.OnLeave()
     GameTooltip:Hide()
+    LDB.tooltipShown = nil
 end
