@@ -1,9 +1,10 @@
 ## Interface: 20501
 ## Title: Broker Pet Happiness
 ## Notes: A simple broker (LDB) that shows information about your pet's happiness.
-## Version: v1.5
+## Version: @project-version@
 ## Author: Warmexx [Neighbours]
 ## OptionalDeps: Ace3
+## X-Date: @project-date-iso@
 ## X-Donate: PayPal:warmexx AT wow-neighbours DOT com
 ## X-Website: https://www.curseforge.com/wow/addons/broker-pet-happiness
 ## X-Category: Data Broker
