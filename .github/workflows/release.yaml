@@ -20,8 +20,8 @@ jobs:
 
       - uses: BigWigsMods/packager@v1.0.1
         with:
-          args: -g classic -d
+          args: -g classic
 
       - uses: BigWigsMods/packager@v1.0.1
         with:
-          args: -g bcc -d
+          args: -g bcc
