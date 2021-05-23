@@ -16,12 +16,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout source code
+        uses: actions/checkout@v2
 
-      - uses: BigWigsMods/packager@v1.0.1
+      - name: Package Classic
+        uses: BigWigsMods/packager@v1.0.1
         with:
           args: -g classic
 
-      - uses: BigWigsMods/packager@v1.0.1
+      - name: Package BCC
+        uses: BigWigsMods/packager@v1.0.1
         with:
           args: -g bcc
