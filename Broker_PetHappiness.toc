@@ -1,4 +1,5 @@
-## Interface: 11307
+## Interface-Classic: 11307
+## Interface-BCC: 20501
 ## Title: Broker Pet Happiness
 ## Notes: A simple broker (LDB) that shows information about your pet's happiness.
 ## Version: @project-version@
@@ -6,9 +7,12 @@
 ## OptionalDeps: Ace3
 ## X-Date: @project-date-iso@
 ## X-Donate: PayPal:warmexx AT wow-neighbours DOT com
-## X-Website: https://www.curseforge.com/wow/addons/broker-pet-happiness
+## X-Website: https://github.com/warmexx/broker-pet-happiness
 ## X-Category: Data Broker
 ## X-License: GPL v2
+## X-Curse-Project-ID: 342504
+## X-WoWI-ID: 26029
+## X-Wago-ID: VBNBVaNx
 
 Libs\LibStub\LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
