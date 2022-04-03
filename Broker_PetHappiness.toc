@@ -1,5 +1,5 @@
-## Interface-Classic: 11401
-## Interface-BCC: 20502
+## Interface-Classic: 11402
+## Interface-BCC: 20504
 ## Title: Broker Pet Happiness
 ## Notes: A simple broker (LDB) that shows information about your pet's happiness.
 ## Version: @project-version@
