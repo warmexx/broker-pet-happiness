@@ -17,14 +17,7 @@ jobs:
 
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Package Classic
-        uses: BigWigsMods/packager@v1.0.1
-        with:
-          args: -g classic
-
-      - name: Package BCC
-        uses: BigWigsMods/packager@v1.0.1
-        with:
-          args: -g bcc
+      - name: Package
+        uses: BigWigsMods/packager@v2
